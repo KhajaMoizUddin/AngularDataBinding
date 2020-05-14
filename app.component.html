@@ -1,0 +1,52 @@
+
+<!--String Interpolation-->
+<h3> {{this.value1}} </h3>
+<h3> {{this.value2}} </h3>
+<h3> {{this.webLink}} </h3>
+<hr>
+
+<!-- Property Binding -->
+<span [innerText]='this.value1'></span><br>
+<span [innerHTML]='this.value2'></span><br>
+<div [innerText]='this.webLink'></div>
+<hr>
+<h3 [ngStyle]="{'background-color': this.value1=='KhajaMoiz' ? 'skyblue' : 'red'}" >NG STYLE</h3>
+<h3 [ngStyle]="{'background-color' :this.value1=='Khaja'?'skyblue':'red'}">NG STYLE</h3>
+
+<h3 [ngStyle]="{'background-color': this.value2=='KhajaMoizuddin' ? 'red' : 'green'}" >NG STYLE</h3>
+<h3 [ngStyle]="{'background-color':this.value2=='KhajaMoiz' ? 'red' : 'green'}" >NG STYLE</h3>
+<hr>
+
+<a [href]='this.webLink' target="_blank">CsharpCorner</a><br>
+<input type="button" name="button1" [ngClass]='this.value2' value="Button1"><br>
+<input type='text' name='textbox1' [ngClass]='this.value1'/><br>
+
+<input type="button" name="button1" id={{this.value1}} value="Button2"><br>
+<input type="text" name="textbox1" class={{this.value2}}/><br>
+
+<!-- Event Binding -->
+
+<input type="button" (click)="onclickButton()" value="Info"/>
+{{this.information}}
+
+<input type="button" (dblclick)="ondoubeClick()" value="DoubleClick"/>
+{{this.doubleclicked}}
+
+<input type="button" (submit)="onsubmitclicked()" value="Submit"/><br>
+{{this.onsubmit}}
+
+<img [src]='this.imageLink'/><br>
+<img src={{this.imageLink}}/>
+
+<!-- Two way Data Binding -->
+
+<input type="text" value="{{this.value1}}" [(ngModel)]="this.value1">
+{{this.value1}}
+
+<input type="text" value="{{this.value2}}" [(ngModel)]="this.value2">
+{{this.value2}}
+
+
+
+
+

@@ -1,0 +1,84 @@
+
+<!--STRING INTERPOLATION -->
+
+<h3> Employee Firstname is: {{this.firstName}} </h3>
+<h3> Employee LastName is: {{this.lastName}} </h3>
+<h3>Employee FullName is: {{this.fullName}} </h3>
+<h3> Employee FullName is: {{this.firstName +' '+this.lastName}} </h3>
+<h3>Number1 is: {{this.number1}} </h3>
+<h3>Number2 is: {{this.number2}} </h3>
+<h3> Total Amount is: {{this.totalValue}} </h3>
+<h3> Total Amount is: {{this.number1 + this.number2}} </h3>
+<h3> Employee FullName is: {{this.getEmployeeFullName()}} </h3>
+<h3>Total Amount is: {{this.getTotalAmt()}} </h3>
+
+
+<!-- PROPERTY BINDING-->
+<span [innerText]='this.fullName'></span><br>
+<span [innerHTML]='this.fullName'></span><br>
+<span innerText= '{{this.fullName}}' ></span><br>
+<span innerHTML= '{{this.fullName}}'></span><br>
+<!-- Binding property value to the DOM element. -->
+<span attr.innerText='{{this.fullName}}'></span><br>
+<span attr.innerHTML='{{this.fullName}}' ></span><br>
+<span [attr.innerText]='this.fullName'></span><br>
+<span [attr.innerHTML]='this.fullName'></span>
+
+<a href="{{this.weblinkURL}}" target="_blank">C# Corner</a><br>
+<a [href]='this.weblinkURL' target="_blank">C# Corner</a><br>
+<a [attr.href]='this.weblinkURL' target="_blank">C# Corner</a><br>
+<a attr.href='{{this.weblinkURL}}' target="_blank">C# Corner</a>
+<br>
+<img src='{{this.myImagePath}}' height="40" width="40"/><br>
+<img [src]='this.myImagePath' [height]='40' [width]='40'/>
+
+<!-- attr is used for attribute binding it is used to bind the property for DOM element. -->
+<img [attr.src]='this.myImagePath' [attr.height] ='40' [attr.width]='40'/>
+<!--img attr.src='{{this.myImagePath}}' attr.height = "40" attr.width = "40"/><br>-->
+
+<!--CLASS BINDING-->
+NG CLASS: <input type="text" [ngClass]='this.fullName' [id]='this.firstName' [name]='this.lastName'>
+NG CLASS: <input type="text" class="{{this.fullName}}" id="{{this.firstName}}" name="{{this.lastName}}">
+
+<!-- STYLE BINDING -->
+
+<h3 [ngStyle]="{'background-color': this.fullName == getEmployeeFullName() ? 'red' : 'skyblue'}" > NG STYLE WITH FULLNAME </h3>
+<h3 [ngStyle]="{'background-color': this.fullName != getEmployeeFullName() ? 'red' : 'pink'}"> NG STYLE WITH FULLNAME </h3>
+
+<h3 [ngStyle]="{'background-color': this.totalValue == getTotalAmt() ? 'red' : 'pink' }">NG STYLE WITH NUMBER</h3>
+<h3 [ngStyle]="{'background-color': this.totalValue != getTotalAmt() ? 'red' : 'pink' }">NG STYLE WITH NUMBER</h3>
+
+<!-- EVENT BINDING-->
+
+<input type="button" (click)= 'onbuttonclick()' value="CLICK">
+{{this.onbuttoncliickFName}}
+
+<input type="button" (dblclick)= 'ondoubleclick()' value='DOUBLE CLICK'>
+{{this.ondoubleclickFName}}
+
+<!--ATTRIBUTE BINDING-->
+<table>
+  <th colspan = "2" >Names</th>
+ <tr><td>Khaja</td><td>Moiz</td></tr>
+ <tr><td>Moiz</td><td>Khaja</td></tr>
+
+  </table>
+
+
+<!--TWO WAY DATA BINDING -->
+Two way binding: <input type="text" [(ngModel)]='this.fullName' value="{{this.fullName}}">
+{{this.fullName}}
+
+<style>
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+    }
+</style>

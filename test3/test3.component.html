@@ -1,0 +1,83 @@
+<h2>STRING INTERPOLATION</h2>
+<hr>
+
+<h3> firstName is:{{this.firstName}}  </h3>
+<h3> lastName is: {{this.lastName}} </h3>
+<h3> fullName is:{{this.fullName}}  </h3>
+<h3> fullName1 is:{{this.getFullName1()}}  </h3>
+<h3> fullName2 is:{{this.getFullName2()}} </h3>
+<h3> fullName3 is:{{this.getFullName3()}}  </h3>
+<h3> Number1 is : {{this.number1}} </h3>
+<h3> Number2 is:{{this.number2}}  </h3>
+<h3> TotalAmount is:{{this.totalAmount}}  </h3>
+<h3> TotalAmount1 is:{{this.getTotalAmount1()}}  </h3>
+<h3> TotalAmount2 is:{{this.getTotalAmount2()}}  </h3>
+<h3>TotalAmount3 is: {{this.getTotalAmount3()}}  </h3>
+
+<!--PROPERTY BINDING-->
+<h2>PROPERTY BINDING</h2>
+<hr>
+
+<span [innerText]='this.firstName'></span><br>
+<span [innerHTML] = 'this.lastName'></span><br>
+<span innerText = '{{this.firstName}}'></span><br>
+<span innerHTML = '{{this.lastName}}'></span>
+
+<!--BINDING PROPERTY TO DOM ELEMENT-->
+<span [attr.innerText]='this.firstName'></span><br>
+<span [attr.innerHTML] = 'this.lastName'></span><br>
+<span attr.innerText = '{{this.firstName}}'></span><br>
+<span attr.innerHTML = '{{this.lastName}}'></span>
+
+
+<a href="{{this.csharpCornerURL}}" target="_blank">CsharpCorner</a><br>
+<a [href]='this.csharpCornerURL' target="_blank">CsharpCorner</a><br>
+<a attr.href = '{{this.csharpCornerURL}}' target="_blank">CsharpCorner</a><br>
+<a [attr.href]='this.csharpCornerURL' target="_blank">CsharpCorner</a><br>
+
+<img src='{{this.myImagePath}}' height='{{this.heightImg}}' width="{{this.widthImg}}" /><br>
+<img [src]='this.myImagePath' [height]='this.heightImg' [width]="this.widthImg"><br>
+<img attr.src = '{{this.myImagePath}}' attr.height='{{this.heightImg}}' attr.width="{{this.widthImg}}"><br>
+<img [attr.src]='this.myImagePath' [attr.height]='this.heightImg' [attr.width]="this.widthImg">
+
+<!--NG STYLE-->
+<h2>NG STYLE WITH TRUE CONDITION</h2>
+<h3 [ngStyle]="{'background-color': this.fullName == this.getFullName1()?'green':'red'}">NG STYLE WITH TRUE CONDITION</h3>
+<h3 [ngStyle] = "{'background-color': this.getFullName1() == this.getFullName2()?'green':'red'}">NG STYLE WITH TRUE CONDITION</h3>
+<h3 [ngStyle] = "{'background-color': this.getFullName3() == this.firstName + this.lastName ?'green':'red'}">NG STYLE WITH TRUE CONDITION</h3>
+<h3 [ngStyle] = "{'background-color': this.totalAmount == this.getTotalAmount1() ?'green':'red'}">NG STYLE WITH TRUE CONDITION</h3>
+<h3 [ngStyle] = "{'background-color': this.getTotalAmount2() == this.getTotalAmount3()?'green':'red'}">NG STYLE WITH TRUE CONDITION</h3>
+<h3 [ngStyle] = "{'background-color': this.getTotalAmount3() == this.number1 + this.number2?'green':'red'}">NG STYLE WITH TRUE CONDITION</h3>
+
+<h2>NG STYLE WITH FALSE CONDITION</h2>
+<h3 [ngStyle]="{'background-color': this.fullName != this.getFullName1()?'green':'red'}">NG STYLE WITH FALSE CONDITION</h3>
+<h3 [ngStyle] = "{'background-color': this.getFullName1() != this.getFullName2()?'green':'red'}">NG STYLE WITH FALSE CONDITION</h3>
+<h3 [ngStyle] = "{'background-color': this.getFullName3() != this.firstName + this.lastName ?'green':'red'}">NG STYLE WITH FALSE CONDITION</h3>
+<h3 [ngStyle] = "{'background-color': this.totalAmount != this.getTotalAmount1() ?'green':'red'}">NG STYLE WITH FALSE CONDITION</h3>
+<h3 [ngStyle] = "{'background-color': this.getTotalAmount2() != this.getTotalAmount3()?'green':'red'}">NG STYLE WITH FALSE CONDITION</h3>
+<h3 [ngStyle] = "{'background-color': this.getTotalAmount3() != this.number1 + this.number2?'green':'red'}">NG STYLE WITH FALSE CONDITION</h3>
+
+<!--NG CLASS-->
+NG CLASS EXAMPLE1: <input type="text" [ngClass]= 'this.fullName' [id]='this.firstName' [name]='this.lastName'/><br>
+NG CLASS EXAMPLE1: <input type="text" ngClass= '{{this.fullName}}' id='{{this.firstName}}' name='{{this.lastName}}'/><br><br>
+
+NG CLASS EXAMPLE2: <input type="text" [attr.ngClass]= 'this.fullName' [attr.id]='this.firstName' [attr.name]='this.lastName'/><br>
+NG CLASS EXAMPLE2: <input type="text" attr.ngClass= '{{this.fullName}}' attr.id='{{this.firstName}}' attr.name='{{this.lastName}}'/><br><br>
+
+CLASS EXAMPLE3: <input type="text" [class]= 'this.fullName' [id]='this.firstName' [name]='this.lastName'/><br>
+CLASS EXAMPLE3: <input type="text" class= '{{this.fullName}}' id='{{this.firstName}}' name='{{this.lastName}}'/><br><br>
+
+
+<!--EVENT BINDING-->
+<h2>EVENT BINDING</h2>
+<hr>
+
+<input type="button" (click)=onBtnClick() value="CLICK" height="20" width="20">
+<h3>{{this.onButtonClick}}</h3>
+
+<input type="button" (dblclick)=onDblClick() value="DOUBLE CLICK" height="20" width="20">
+<h3>{{this.onDoubleClick}}</h3>
+
+<!--TWO WAY DATA BINDING-->
+Two Way Binding: <input type="text" [(ngModel)]='this.fullName' value="{{this.fullName}}">
+{{this.fullName}}

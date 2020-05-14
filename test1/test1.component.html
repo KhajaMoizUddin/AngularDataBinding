@@ -1,0 +1,57 @@
+
+
+<!--ONE Way DataBinding
+String Ionterpolation
+Property Binding
+Event Binding
+Atrribute Binding
+Style Binding
+Class Binding-->
+
+<!--Two Way Data Binding with NgModel-->
+<!-- STRING INTERPOLATION -->
+
+<h3>First Name is : {{this.firstName}} </h3>
+<h3>Last Name is : {{this.lastName}} </h3>
+<h3>Value1 is {{this.value1}} </h3>
+<h3> Value2 is {{this.value2}}  </h3>
+<h3> TotalValue is: {{ this.value1 + this.value2}} </h3>
+<h3> Total Value is: {{this.getTotal()}} </h3>
+<h3>Employee Full Name is: {{this.firstName + this.lastName}} </h3>
+<h3>Employee Full Name is:{{this.employeeFullName()}} </h3>
+
+<!--PROPERTY BINDING-->
+<span [innerHTML]='this.value1'></span><br>
+<span [innerText]='this.value2'></span>
+<h3 [ngStyle]="{'background-color':this.getTotal() != 300 ? 'red': 'skyblue'}">NG STYLE WITH NUMBER</h3>
+<h3 [ngStyle]="{'background-color': this.getTotal() == 300 ? 'red' : 'skyblue'}">NG STYLE WITH NUMBER</h3>
+
+<h3 [ngStyle]="{'background-color': this.employeeFullName()==this.EmployeeFullName ? 'red' : 'skyblue'}">NG STYLE WITH TEXT</h3>
+<h3 [ngStyle]="{'background-color': this.employeeFullName()!=this.EmployeeFullName ? 'red' : 'skyblue'}">NG STYLE WITH TEXT</h3>
+
+NG CLASS WITH PROPERTY BINDING: <input type="text" [id]='this.firstName' [ngClass]='this.firstName'><br><br>
+NG CLASS WITH ATTRIBUTES: <input type="text" id = {{this.lastName}} class="{{this.lastName}}"><br>
+
+<a [href]='this.webURL' target="_blank">Csharp-Corner</a><br><br>
+<a href= {{this.webURL}} target='_blank'>Csharp-Corner</a><br>
+
+<img [src]='this.imageURL'/><br>
+<img src="{{this.imageURL}}"/>
+
+<img [src] = 'this.myImageURL' [height]='80' [width]='60'/><br>
+<img src= '{{this.myImageURL}}'>
+<img [attr.src] = 'this.myImageURL' [attr.height]='80' [attr.width]='60'/><br> <!--Property Binding is used with [] square brackets-->
+<img attr.src = '{{this.myImageURL}}' attr.height='{{80}}' attr.width ='{{60}}'/><br> <!--Attribute Binding is used with attr -->
+<!--Attribute binding is used when we doesn't have corresponding DOM property(means colspan doesn't belongs to <th>), for example colspan property for <th>, if we want
+  to use colspan then we need to use it as attribute binding like attr.colspan otherwise we will get with an error. -->
+
+  <!-- Event binding -->
+<input type="button" (click)="onbtnClick()" [name]='this.firstName' value="Click"/><br>
+{{this.onButtonClick}}
+
+<input type="button" (dblclick)="onDoubleClick()" [name]="this.lastName" value="DoubleClick">
+{{this.ondoubleClick}}
+
+<!-- Two way data binding -->
+<input type="text" name="twowaybinding" [(ngModel)]='this.FullName'>
+{{this.FullName}}
